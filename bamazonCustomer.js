@@ -15,7 +15,7 @@ var connection = mysql.createConnection({
 
 connection.connect(function (err) {
   if (err) throw err;
-  // console.log("connected as id " + connection.threadId);
+  
   query();
 });
 
@@ -66,7 +66,7 @@ function prompt() {
         throw err;
       } else if (buyerQty <= res[0].stock_qty) {
         var totalCost = buyerQty * res[0].product_price;
-        // console.log(res) // TESTING
+        
         var query1 = connection.query(`UPDATE products SET stock_qty = stock_qty - ${buyerQty} WHERE item_ID = ${buyerID}`,
           function (err, res) {
             console.log(`Order completed, your total cost is $${totalCost}.00`)
@@ -79,6 +79,6 @@ function prompt() {
         console.log('')
         prompt();
       }
-    })
-  })
+    });
+  });
 }
