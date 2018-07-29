@@ -27,7 +27,8 @@ function query() {
       var response = res;
       console.log('');
       console.log('$$$$$$$$$$$$$$$$$$$$ WELCOME TO BAMAZON $$$$$$$$$$$$$$$$$$$$');
-      // npm package to log database into table in console
+    
+
       var t = new Table
       response.forEach(function (product) {
         t.cell('Product ID', product.item_id)
@@ -48,12 +49,12 @@ function query() {
 function prompt() {
   inquirer.prompt([{
       type: "input",
-      message: "Please type ID of the product to buy: ",
+      message: "Type the ID of the product that you would like buy: ",
       name: "id"
     },
     {
       type: "input",
-      message: "Please type quantity of the product to buy: ",
+      message: "Type the quantity of the product that you would like to buy: ",
       name: "quantity"
     }
   ]).then(function (input) {
@@ -68,7 +69,7 @@ function prompt() {
         
         var query1 = connection.query(`UPDATE products SET stock_qty = stock_qty - ${buyerQty} WHERE item_ID = ${buyerID}`,
           function (err, res) {
-            console.log(`Order completed, your total cost is $${totalCost}.00`)
+            console.log(`Order complete! Your total cost is $${totalCost}.00`)
             console.log('')
             prompt();
           }
