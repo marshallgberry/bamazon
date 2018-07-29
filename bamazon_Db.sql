@@ -3,16 +3,19 @@
 
  USE bamazon_Db;
 
- CREATE TABLE products (
-   item_id INT AUTO_INCREMENT NOT NULL,
-   product_name VARCHAR(100) NULL,
-   department_name VARCHAR(100) NULL,
-   product_price DECIMAL(10,2) NULL,
-   stock_qty INTEGER (11) NULL,
-   PRIMARY KEY (item_ID)
- );
+CREATE TABLE products (
+    item_id INT AUTO_INCREMENT NOT NULL,
+    product_name VARCHAR(100) NULL,
+    department_name VARCHAR(100) NULL,
+    product_price DECIMAL(10 , 2 ) NULL,
+    stock_qty INTEGER(11) NULL,
+    PRIMARY KEY (item_ID)
+);
 
-SELECT * FROM products;
+SELECT 
+    *
+FROM
+    products;
 
 INSERT INTO products (product_name, department_name, product_price, stock_qty)
 	VALUES
