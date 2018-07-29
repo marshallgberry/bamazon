@@ -1,10 +1,9 @@
 
-//required packages
 const mysql = require("mysql");
 const inquirer = require('inquirer');
 const Table = require('easy-table');
 
-//connection
+
 var connection = mysql.createConnection({
   host: "localhost",
   port: 3306,
